@@ -1,0 +1,13 @@
+
+
+.tasksList__item--clickable {
+    background-color: white;
+    border:none;
+    color:teal;
+}
+
+.tasksList__item--clickable:hover {
+    color:rgb(0, 181, 181);
+    transition: 0.5s;
+    cursor: pointer;
+}
