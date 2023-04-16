@@ -2,7 +2,7 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-##Visit my site
+## Visit my site
 [todolist-link](https://kacperm02.github.io/todo-list-react/)
 
 ## Available Scripts
