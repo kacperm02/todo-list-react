@@ -11,3 +11,7 @@
     transition: 0.5s;
     cursor: pointer;
 }
+
+:disabled{
+    color: grey;
+}
