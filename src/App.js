@@ -5,19 +5,26 @@ import Section from "./Section";
 import Header from "./header";
 import Container from "./Container";
 import "./index.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-
+const getInitialTasks = () => {
+    const tasksLocalStorageContent = localStorage.getItem("tasks");
+  return tasksLocalStorageContent
+  ? JSON.parse(tasksLocalStorageContent)
+  : []
+};
 
 function App() {
   const [hideDone, setHideDone] = useState(false);
-  const [tasks, setTasks] = useState([
-  {id:1, content: "Zrobić todo liste", done:true},
-  {id:2, content:"Nauczyć się reacta",done:false},
-  ]);
+
+  const [tasks, setTasks] = useState(getInitialTasks);
+
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks))
+  }, [tasks]);
 
   const toggleHideDone = () => {
-    setHideDone(hideDone => !hideDone)
+    setHideDone(hideDone => !hideDone);
   }
 
   const removeTask = (id) => {
