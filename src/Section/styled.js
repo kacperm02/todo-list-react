@@ -7,7 +7,7 @@ export const StyledSection = styled.section`
     width: 80%;
     border: 1px solid black;
     background-color: white;
-    box-shadow: 1px 1px 10px black;
+    box-shadow: 0 0 5px black;
 `;
 
 export const StyledUl = styled.ul`
@@ -20,10 +20,12 @@ export const StyledUl = styled.ul`
     border-bottom: 1px solid grey;
     padding: 15px;
     color:teal;
+    background-color: white;
 `;
 
 export const ListHeader = styled.li`
-    font-size: 30px;
-    font-weight: bold;
-    color:black;
+    font-size: 20px;
+    margin: 0;
+    color: black;
+    font-weight:bold;
 `;

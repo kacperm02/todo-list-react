@@ -4,57 +4,27 @@ import Buttons from "./Buttons";
 import Section from "./Section";
 import Header from "./header";
 import Container from "./Container";
-import { useEffect, useState } from "react";
-
-const getInitialTasks = () => {
-    const tasksLocalStorageContent = localStorage.getItem("tasks");
-  return tasksLocalStorageContent
-  ? JSON.parse(tasksLocalStorageContent)
-  : []
-};
+import { useState } from "react";
+import {StyledBody} from "./styled.js";
+import {useTasks} from "./useTasks.js";
 
 function App() {
   const [hideDone, setHideDone] = useState(false);
-
-  const [tasks, setTasks] = useState(getInitialTasks);
-
-  useEffect(() => {
-    localStorage.setItem("tasks", JSON.stringify(tasks))
-  }, [tasks]);
 
   const toggleHideDone = () => {
     setHideDone(hideDone => !hideDone);
   }
 
-  const removeTask = (id) => {
-    setTasks(tasks => tasks.filter(task => task.id !== id));
-  }
-
-  const setAllDone =() => {
-    setTasks(tasks => tasks.map(task => ({...task, done: true,})))
-  }
-
-  const toggleTaskDone = (id) => {
-    setTasks(tasks => tasks.map(task => {
-      if(task.id === id ) {
-        return {...task, done: !task.done};
-      }
-
-      return task;
-    }))
-  }
-
-  const addNewTask = (newTaskContent) => {
-    setTasks(tasks => [...tasks, 
-      {
-        content: newTaskContent,
-        done:false,
-        id: tasks.length ? tasks[tasks.length -1].id + 1 : 1,
-      }
-    ])
-  }
+  const {
+    tasks,
+    removeTask,
+    toggleTaskDone,
+    setAllDone,
+    addNewTask,
+  } = useTasks();
 
   return (
+    <StyledBody>
     <Container className="container">
         <Header title="Lista zadań"/>
         <Section 
@@ -72,7 +42,7 @@ function App() {
          />}
         />
        
-    </Container>
+    </Container></StyledBody>
   );
 }
 

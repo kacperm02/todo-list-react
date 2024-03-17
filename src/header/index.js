@@ -1,7 +1,7 @@
 import {StyledHeader} from './styled'
 
 const Header = ({title}) => (
-    <StyledHeader className="header flex__item">
+    <StyledHeader>
         <h1>{title}</h1>
     </StyledHeader>
 );
