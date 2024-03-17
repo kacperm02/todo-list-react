@@ -1,13 +1,13 @@
-import "./style.css";
+import { StyledSection, StyledUl, ListHeader } from "./styled";
 
 const Section = ({title, body, extraHeaderContent}) => (
-    <section className="section__tasksList flex__item">
-            <ul className="tasksList">
-                <li className="tasksList__item tasksList__header">{title}</li>
+    <StyledSection>
+            <StyledUl>
+                <ListHeader>{title}</ListHeader>
                 {extraHeaderContent}
-            </ul>
+            </StyledUl>
            {body}
-        </section>
+    </StyledSection>
 );
 
 export default Section;

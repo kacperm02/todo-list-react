@@ -4,7 +4,6 @@ import Buttons from "./Buttons";
 import Section from "./Section";
 import Header from "./header";
 import Container from "./Container";
-import "./index.css";
 import { useEffect, useState } from "react";
 
 const getInitialTasks = () => {
